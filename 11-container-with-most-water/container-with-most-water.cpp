@@ -4,7 +4,6 @@ public:
         int n=height.size();
         int i=0;
         int j=n-1;
-        int sum=0;
         int ans=INT_MIN;
         while(i<j){
             if(height[i]>height[j]){
