@@ -8,14 +8,13 @@ public:
         int ans=INT_MIN;
         while(i<j){
             if(height[i]>height[j]){
-                sum=height[j]*(j-i);
+                ans=max(ans,height[j]*(j-i));
                 j--;
             }
             else{
-                sum=height[i]*(j-i);
+                ans=max(ans,height[i]*(j-i));
                 i++;
             }
-            ans=max(sum,ans);
         }
         return ans;
     }
