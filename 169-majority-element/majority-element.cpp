@@ -5,11 +5,11 @@ public:
         int n=nums.size();
         int occur=n/2;
         int maxi;
-        for(int i=0;i<n;i++){
-            mp[nums[i]]++;
-        }
-        for(auto x:mp){
-            if(x.second>occur) maxi=x.first;
+        for(int i : nums){
+            mp[i]++;
+        if(mp[i]>occur){
+          maxi=i;
+            }
         }
         return maxi;
     }
