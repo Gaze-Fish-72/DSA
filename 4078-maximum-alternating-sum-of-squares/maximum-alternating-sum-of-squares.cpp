@@ -1,31 +1,18 @@
 class Solution {
 public:
     long long maxAlternatingSum(vector<int>& nums) {
-        int n=nums.size();
-        vector<int>arr(n);
-        for(int i=0;i<n;i++){
-            if(nums[i]<0) nums[i]*=-1;
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            nums[i] = abs((long long)nums[i]);
         }
-        sort(nums.begin(),nums.end());
-        int l=0;
-        int r=n-1;
-        for(int i=0;i<n;i++){
-            if(i%2==0){
-                arr[i]=nums[r];
-                r--;
-            }
-            else{
-                arr[i]=nums[l];
-                l++;
-            }
-        }
-        long long sum=0;
-        for(int i=0;i<n;i++){
-            if(i%2==0){
-                sum+=arr[i]*arr[i];
-            }
-            else{
-                sum-=arr[i]*arr[i];
+        sort(nums.begin(), nums.end());
+        long long sum = 0;
+        for (int i = 0; i < n; i++) {
+            long long sq = nums[i] * nums[i];
+            if (i < n / 2) {
+                sum -= sq;
+            } else {
+                sum += sq;
             }
         }
         return sum;
